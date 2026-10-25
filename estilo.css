@@ -1,0 +1,238 @@
+
+/* Estilo general */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #f5e8c8;
+  background: #100d1c;
+  overflow-x: hidden;
+}
+
+/* Fondos que flotan detrás del contenido */
+#fondos {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #100d1c;
+}
+
+.fondo {
+  position: absolute;
+  width: 115%;
+  height: 115%;
+  top: -7%;
+  left: -7%;
+  object-fit: cover;
+  opacity: 0;
+  animation: flotar 30s ease-in-out infinite alternate;
+}
+
+.fondo:nth-child(1) {
+  opacity: 0.48;
+  animation-delay: 0s;
+}
+
+.fondo:nth-child(2) {
+  animation-delay: -6s;
+}
+
+.fondo:nth-child(3) {
+  animation-delay: -12s;
+}
+
+.fondo:nth-child(4) {
+  animation-delay: -18s;
+}
+
+.fondo:nth-child(5) {
+  animation-delay: -24s;
+}
+
+#fondos::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle, transparent 10%, rgba(10, 7, 20, 0.65) 100%),
+    linear-gradient(rgba(12, 8, 25, 0.35), rgba(12, 8, 25, 0.75));
+}
+
+@keyframes flotar {
+  0% {
+    transform: translate(-1%, -1%) scale(1);
+  }
+
+  50% {
+    transform: translate(1%, 1%) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-1%, 2%) scale(1.08);
+  }
+}
+
+/* Contenido de la página */
+#contenedor {
+  width: 100%;
+  min-height: 100vh;
+  padding: 35px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.encabezado {
+  margin: 0;
+  color: #d9b86c;
+  letter-spacing: 5px;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 12px 0 5px;
+  font-size: clamp(30px, 5vw, 54px);
+  letter-spacing: 3px;
+  text-shadow: 0 0 18px rgba(218, 177, 83, 0.45);
+}
+
+.subtitulo {
+  margin: 5px 0 28px;
+  color: #d8c9a6;
+  font-style: italic;
+}
+
+/* Cartel de se busca */
+#cartel {
+  width: min(100%, 650px);
+  padding: 28px 24px;
+  border: 1px solid #b99a58;
+  outline: 1px solid rgba(185, 154, 88, 0.35);
+  outline-offset: 6px;
+  background: rgba(24, 17, 31, 0.86);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+}
+
+.sello {
+  display: inline-block;
+  margin: 0;
+  padding: 7px 12px;
+  border: 1px solid #9c7a3f;
+  color: #d9b86c;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+h2 {
+  margin: 18px 0 8px;
+  color: #e5c779;
+  font-size: clamp(34px, 5vw, 48px);
+  letter-spacing: 6px;
+}
+
+.instruccion {
+  margin: 0 auto 15px;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #d9cfbd;
+  font-size: 14px;
+}
+
+/* Piezas del personaje */
+#bestia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  min-height: 280px;
+  margin: 15px auto;
+}
+
+#bestia img {
+  display: block;
+  width: 33.333%;
+  max-width: 190px;
+  height: 280px;
+  object-fit: contain;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: drop-shadow(0 0 8px rgba(221, 185, 105, 0.15));
+}
+
+#bestia img.cambio {
+  transform: translateY(-5px);
+}
+
+/* Mensaje */
+#mensaje {
+  min-height: 24px;
+  color: #dfc681;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Botón mágico */
+#boton {
+  margin: 12px 0 5px;
+  padding: 13px 25px;
+  border: 1px solid #c9a75c;
+  background: #33233c;
+  color: #f4dfaa;
+  font-family: inherit;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#boton:hover {
+  background: #59405d;
+  box-shadow: 0 0 20px rgba(218, 177, 83, 0.3);
+  transform: translateY(-2px);
+}
+
+#boton:focus-visible {
+  outline: 2px solid #f5e8c8;
+  outline-offset: 4px;
+}
+
+.pie {
+  margin-top: 30px;
+  color: #c5b58f;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 500px) {
+  #contenedor {
+    padding: 25px 15px;
+  }
+
+  #cartel {
+    padding: 22px 12px;
+  }
+
+  #bestia {
+    min-height: 200px;
+  }
+
+  #bestia img {
+    height: 210px;
+  }
+
+  h1 {
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    letter-spacing: 3px;
+  }
+}
