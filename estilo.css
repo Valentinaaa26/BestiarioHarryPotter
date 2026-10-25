@@ -1,238 +1,157 @@
-
-/* Estilo general */
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #f5e8c8;
-  background: #100d1c;
-  overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #f7e9c8;
+    background-color: #100b19;
 }
 
-/* Fondos que flotan detrás del contenido */
+
 #fondos {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-  background: #100d1c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .fondo {
-  position: absolute;
-  width: 115%;
-  height: 115%;
-  top: -7%;
-  left: -7%;
-  object-fit: cover;
-  opacity: 0;
-  animation: flotar 30s ease-in-out infinite alternate;
-}
-
-.fondo:nth-child(1) {
-  opacity: 0.48;
-  animation-delay: 0s;
-}
-
-.fondo:nth-child(2) {
-  animation-delay: -6s;
-}
-
-.fondo:nth-child(3) {
-  animation-delay: -12s;
-}
-
-.fondo:nth-child(4) {
-  animation-delay: -18s;
-}
-
-.fondo:nth-child(5) {
-  animation-delay: -24s;
+    width: 20%;
+    height: 100%;
+    flex: 1 1 20%;
+    min-width: 0;
+    object-fit: cover;
 }
 
 #fondos::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle, transparent 10%, rgba(10, 7, 20, 0.65) 100%),
-    linear-gradient(rgba(12, 8, 25, 0.35), rgba(12, 8, 25, 0.75));
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 8, 25, 0.55);
 }
 
-@keyframes flotar {
-  0% {
-    transform: translate(-1%, -1%) scale(1);
-  }
-
-  50% {
-    transform: translate(1%, 1%) scale(1.05);
-  }
-
-  100% {
-    transform: translate(-1%, 2%) scale(1.08);
-  }
-}
-
-/* Contenido de la página */
 #contenedor {
-  width: 100%;
-  min-height: 100vh;
-  padding: 35px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .encabezado {
-  margin: 0;
-  color: #d9b86c;
-  letter-spacing: 5px;
-  font-size: 12px;
+    margin: 0;
+    letter-spacing: 4px;
+    font-size: 14px;
 }
 
 h1 {
-  margin: 12px 0 5px;
-  font-size: clamp(30px, 5vw, 54px);
-  letter-spacing: 3px;
-  text-shadow: 0 0 18px rgba(218, 177, 83, 0.45);
+    margin: 12px 0 5px;
+    font-size: clamp(30px, 5vw, 48px);
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px #000;
 }
 
 .subtitulo {
-  margin: 5px 0 28px;
-  color: #d8c9a6;
-  font-style: italic;
+    margin: 0 0 25px;
+    font-style: italic;
 }
-
-/* Cartel de se busca */
 #cartel {
-  width: min(100%, 650px);
-  padding: 28px 24px;
-  border: 1px solid #b99a58;
-  outline: 1px solid rgba(185, 154, 88, 0.35);
-  outline-offset: 6px;
-  background: rgba(24, 17, 31, 0.86);
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+    width: min(100%, 560px);
+    padding: 25px 20px;
+    border: 3px solid #c8a96b;
+    outline: 1px solid #c8a96b;
+    outline-offset: -9px;
+    background: rgba(30, 20, 35, 0.88);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.65);
 }
 
 .sello {
-  display: inline-block;
-  margin: 0;
-  padding: 7px 12px;
-  border: 1px solid #9c7a3f;
-  color: #d9b86c;
-  font-size: 10px;
-  letter-spacing: 3px;
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 3px;
 }
 
 h2 {
-  margin: 18px 0 8px;
-  color: #e5c779;
-  font-size: clamp(34px, 5vw, 48px);
-  letter-spacing: 6px;
+    margin: 10px 0;
+    font-size: clamp(32px, 5vw, 45px);
+    letter-spacing: 5px;
 }
 
 .instruccion {
-  margin: 0 auto 15px;
-  max-width: 400px;
-  line-height: 1.6;
-  color: #d9cfbd;
-  font-size: 14px;
+    margin: 0 auto 20px;
+    max-width: 390px;
+    line-height: 1.5;
 }
-
-/* Piezas del personaje */
 #bestia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  width: 100%;
-  min-height: 280px;
-  margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    width: 100%;
 }
 
 #bestia img {
-  display: block;
-  width: 33.333%;
-  max-width: 190px;
-  height: 280px;
-  object-fit: contain;
-  transition: transform 0.35s ease, filter 0.35s ease;
-  filter: drop-shadow(0 0 8px rgba(221, 185, 105, 0.15));
+    display: block;
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
 }
-
-#bestia img.cambio {
-  transform: translateY(-5px);
-}
-
-/* Mensaje */
 #mensaje {
-  min-height: 24px;
-  color: #dfc681;
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.5;
+    min-height: 24px;
+    margin: 18px 0;
+    font-size: 14px;
 }
 
-/* Botón mágico */
 #boton {
-  margin: 12px 0 5px;
-  padding: 13px 25px;
-  border: 1px solid #c9a75c;
-  background: #33233c;
-  color: #f4dfaa;
-  font-family: inherit;
-  font-size: 15px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    padding: 12px 22px;
+    border: 1px solid #e0c27c;
+    background: #49331e;
+    color: #fff0c8;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
 }
 
 #boton:hover {
-  background: #59405d;
-  box-shadow: 0 0 20px rgba(218, 177, 83, 0.3);
-  transform: translateY(-2px);
+    background: #6a4b29;
+    transform: scale(1.04);
 }
 
-#boton:focus-visible {
-  outline: 2px solid #f5e8c8;
-  outline-offset: 4px;
+#boton:active {
+    transform: scale(0.98);
 }
-
 .pie {
-  margin-top: 30px;
-  color: #c5b58f;
-  font-size: 10px;
-  letter-spacing: 3px;
+    margin-top: 25px;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
+@media (max-width: 600px) {
+    #contenedor {
+        padding: 25px 12px;
+    }
 
-/* Ajustes para celulares */
-@media (max-width: 500px) {
-  #contenedor {
-    padding: 25px 15px;
-  }
+    #cartel {
+        padding: 25px 15px;
+    }
 
-  #cartel {
-    padding: 22px 12px;
-  }
+    #bestia img {
+        height: 125px;
+    }
 
-  #bestia {
-    min-height: 200px;
-  }
-
-  #bestia img {
-    height: 210px;
-  }
-
-  h1 {
-    letter-spacing: 1px;
-  }
-
-  h2 {
-    letter-spacing: 3px;
-  }
+    .encabezado {
+        letter-spacing: 2px;
+    }
 }

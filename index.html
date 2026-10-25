@@ -2,59 +2,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bestiario Mágico</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiario Mágico</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
+    <main id="contenedor">
 
-  <!-- Fondos mágicos -->
-  <div id="fondos">
-    <img src="./assets/fondo1.jpg" class="fondo" alt="">
-    <img src="./assets/fondo2.jpg" class="fondo" alt="">
-    <img src="./assets/fondo3.jpg" class="fondo" alt="">
-    <img src="./assets/fondo4.jpg" class="fondo" alt="">
-    <img src="./assets/fondo5.jpg" class="fondo" alt="">
-  </div>
+        <p class="encabezado">MINISTERIO DE MAGIA</p>
 
-  <!-- Contenido principal -->
-  <main id="contenedor">
+        <h1>BESTIARIO MÁGICO</h1>
 
-    <p class="encabezado">MINISTERIO DE MAGIA</p>
+        <section id="cartel">
 
-    <h1>BESTIARIO MÁGICO</h1>
+            <h2>SE BUSCA</h2>
 
-    <p class="subtitulo">Criaturas y personajes del mundo mágico</p>
+            <p class="instruccion">
+                PULSA EL BOTÓN PARA MEZCLAR
+            </p>
 
-    <section id="cartel">
-      <p class="sello">ARCHIVO CONFIDENCIAL</p>
+            <div id="bestia">
+                <img id="cabeza" src="./assets/cabeza1.png" alt="Cabeza">
+                <img id="torzo" src="./assets/torzo2.png" alt="Torso">
+                <img id="piernas" src="./assets/piernas3.png" alt="Piernas">
+            </div>
 
-      <h2>SE BUSCA</h2>
+            <p id="mensaje">Pulsa el botón para lanzar el hechizo.</p>
 
-      <p class="instruccion">
-        Las piezas están encantadas. ¿Puedes reconstruir la imagen?
-      </p>
+            <button id="boton">✦ Lanzar hechizo ✦</button>
+        </section>
 
-      <!-- Las tres partes del personaje -->
-      <div id="bestia">
-        <img id="cabeza" src="./assets/cabeza1.png" alt="Cabeza del personaje">
-        <img id="torzo" src="./assets/torzo2.png" alt="Torso del personaje">
-        <img id="piernas" src="./assets/piernas3.png" alt="Piernas del personaje">
-      </div>
+        <p class="pie">HOGWARTS • ARCHIVOS DEL MUNDO MÁGICO</p>
 
-      <p id="mensaje" aria-live="polite">
-        Pulsa el botón para mezclar las piezas.
-      </p>
+    </main>
 
-      <button id="boton">✦ Lanzar hechizo ✦</button>
-    </section>
-
-    <p class="pie">HOGWARTS • ARCHIVOS DEL MUNDO MÁGICO</p>
-
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
